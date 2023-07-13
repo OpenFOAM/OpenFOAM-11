@@ -482,7 +482,7 @@ int main(int argc, char *argv[])
     );
 
     HashTable<Pair<word>> patchOpts(7);
-    patches.append("defaultPatch");
+    patches.append("default");
     forAll(patches, i)
     {
         readPatchOption(args, patchOpts, patches[i] + "Patch");
@@ -514,6 +514,7 @@ int main(int argc, char *argv[])
             runTime.system(),
             runTime,
             surfaces,
+            args.optionFound("bounds"),
             nCells,
             refineFactor,
             patchOpts,
