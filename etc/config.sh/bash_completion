@@ -4559,7 +4559,7 @@ _foamInfo_ ()
 
     opts="-all -browser -help -keyword -web"
     for o in $used ; do opts="${opts/$o/}" ; done
-    opts="$opts $(_infoArgs)"
+    opts="$opts $(_infoArgs) $(ls $FOAM_APPBIN)"
     extra=""
 
     [ "$COMP_CWORD" = 1 ] || \
