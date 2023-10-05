@@ -24,6 +24,7 @@ License
 \*---------------------------------------------------------------------------*/
 
 #include "shockFluid.H"
+#include "fvMeshStitcher.H"
 #include "localEulerDdtScheme.H"
 #include "hydrostaticInitialisation.H"
 #include "fvcMeshPhi.H"
@@ -261,7 +262,7 @@ void Foam::solvers::shockFluid::preSolve()
 
     fvModels().preUpdateMesh();
 
-    if (mesh.topoChanging())
+    if (mesh.topoChanging() || mesh.stitcher().stitches())
     {
         pos.clear();
         neg.clear();
