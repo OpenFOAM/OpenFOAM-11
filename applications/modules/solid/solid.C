@@ -222,9 +222,9 @@ void Foam::solvers::solid::thermophysicalPredictor()
         eEqn.solve();
 
         fvConstraints().constrain(e);
-    }
 
-    thermo_.correct();
+        thermo_.correct();
+    }
 }
 
 
