@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2022-2023 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2022-2024 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -60,6 +60,7 @@ void Foam::solvers::incompressibleFluid::moveMesh()
                 );
 
                 // Make the flux relative to the mesh motion
+                MRF.makeRelative(phi_);
                 fvc::makeRelative(phi_, U);
             }
 
